@@ -140,6 +140,7 @@ let renameFolder = async (orgFolderName, newFolderName) => {
     }
   );
 };
+//Uncomment this function to test the application
 let queriesToRun = async () => {
   /*
   await addRootFolder();
