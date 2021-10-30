@@ -10,7 +10,7 @@ class App {
     }
 
     private async init() {
-        
+        console.log("Called init function");
     }
     
     public async connectToDb() {
@@ -27,6 +27,7 @@ class App {
         });
         try {
             await this.db.sync({ force: DBConfig.SYNC_FLAG});
+            console.log("Connecting to database");
             console.log("Synced");
         } catch (e) {
             console.log("db sync error", e);

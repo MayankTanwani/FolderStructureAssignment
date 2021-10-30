@@ -140,6 +140,13 @@ let renameFolder = async (orgFolderName, newFolderName) => {
     }
   );
 };
+let getAllFolders = async () => {
+  // Get list of all folders
+  return await FileModel.findAll({
+    order: [["createdAt", "asc"]],
+  });
+};
+
 //Uncomment this function to test the application
 let queriesToRun = async () => {
   await addRootFolder();
