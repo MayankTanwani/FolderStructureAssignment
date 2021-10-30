@@ -142,7 +142,6 @@ let renameFolder = async (orgFolderName, newFolderName) => {
 };
 //Uncomment this function to test the application
 let queriesToRun = async () => {
-  /*
   await addRootFolder();
   await addFolder(1, "Folder1");
   await addFolder(1, "Folder2");
@@ -182,7 +181,6 @@ let queriesToRun = async () => {
   console.log(await findFilesByFileName("file"));
   console.log(await findFiles("file", "PNG"));
   console.log(await renameFolder("SubFolder2", "NestedFolder2"));
-  */
 };
 
 start();
