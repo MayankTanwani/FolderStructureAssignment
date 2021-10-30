@@ -15,3 +15,13 @@ let getTestFiles = async () => {
     });
   };
 
+  let findAllTestFilesByName = async (fileName) => {
+    // Find all test files with specific name
+    return await FileModel.findAll({
+      where: {
+        fileName: {
+          [Op.iLike]: `%${fileName}%`,
+        },
+      },
+    });
+  };
