@@ -15,13 +15,21 @@ let getTestFiles = async () => {
     });
   };
 
-  let findAllTestFilesByName = async (fileName) => {
-    // Find all test files with specific name
-    return await FileModel.findAll({
-      where: {
-        fileName: {
-          [Op.iLike]: `%${fileName}%`,
-        },
+let findAllTestFilesByName = async (fileName) => {
+  // Find all test files with specific name
+  return await FileModel.findAll({
+    where: {
+      fileName: {
+        [Op.iLike]: `%${fileName}%`,
       },
-    });
-  };
+    },
+  });
+};
+
+// Get file size
+let filesize = await FileModel.findAll({
+  attributes: [[Sequelize.fn("sum", Sequelize.col("size")), "total_size"]],
+  where: {
+    parentId: folderId,
+  },
+});
