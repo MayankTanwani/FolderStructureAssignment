@@ -10,6 +10,7 @@ let start = async () => {
 
 let addRootFolder = async () => {
   // Code for adding root folder
+  console.log("Inside addRootFolder");
   let rootFolder = new FolderModel({
     folderName: "root",
   });
@@ -17,6 +18,7 @@ let addRootFolder = async () => {
 };
 let addFolder = async (parentId, name) => {
   // Adding a folder by its parent and name
+  console.log("Inside addFolder");
   let newFolder = new FolderModel({
     parentId: parentId,
     folderName: name,
@@ -25,6 +27,7 @@ let addFolder = async (parentId, name) => {
 };
 
 let addFile = async (fileData) => {
+  console.log("Inside addFile");
   // Adding a file by its data
   let newFile = new FileModel({ ...fileData });
   return await newFile.save();
@@ -32,6 +35,7 @@ let addFile = async (fileData) => {
 
 let getAllFiles = async () => {
   // Get all files and order by creation date
+  console.log("Inside getAllFiles");
   return await FileModel.findAll({
     order: [["createdAt", "desc"]],
   });
@@ -39,6 +43,7 @@ let getAllFiles = async () => {
 
 let allFilesSize = async (folderId) => {
   // Initialize totalSize for the folder
+  console.log("Inside allFileSize");
   let totalSize = 0;
 
   // Get all subFolders for the current folder by their parentId
